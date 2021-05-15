@@ -36,3 +36,18 @@ script.Parent.Touched:Connect(function(hit)
 		end
 	end
 end)
+
+
+-- Player - starter playerscript 
+local char = script.Parent
+
+local player = game.Players:FindFirstChild(char.Name)
+
+repeat wait() until player.leaderstats
+repeat wait() until player.leaderstats.Checkpoint
+
+local findspawn = game.Workspace.SpawnSystem.Checkpoints:FindFirstChild(player.leaderstats.Checkpoint.Value)
+
+if findspawn ~= nil then
+	char.Torso.CFrame = findspawn.CFrame * CFrame.new(0,5,0)
+end
